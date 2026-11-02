@@ -1,0 +1,7 @@
+my_list <- list(
+  num_vec = c(10, 20, 30),
+  char_mat = matrix(c("a", "b", "c", "d"), nrow = 2),
+  custom_func = function(x) x^2
+)
+print(my_list)
+print(my_list$custom_func(5))
