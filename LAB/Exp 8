@@ -1,4 +1,4 @@
 set.seed(123)
 norm_samples <- rnorm(100, mean = 0, sd = 1)
 print(norm_samples)
-print(table(cut(norm_samples, breaks = -3:3))) # Occurrence count in intervals
+print(table(cut(norm_samples, breaks = -3:3)))
