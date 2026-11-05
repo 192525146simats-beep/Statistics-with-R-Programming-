@@ -1,0 +1,14 @@
+data("USArrests")
+summary(USArrests)
+rownames(USArrests)[which.max(USArrests$Rape)]
+max_murder_state <- rownames(USArrests)[which.max(USArrests$Murder)]
+min_murder_state <- rownames(USArrests)[which.min(USArrests$Murder)]
+cat("Max Murder:", max_murder_state, "\nMin Murder:", min_murder_state, "\n")
+cor(USArrests)
+med_assault <- median(USArrests$Assault)
+q25_murder <- quantile(USArrests$Murder, 0.25)
+subset_states <- rownames(USArrests[USArrests$Assault > med_assault & USArrests$Murder < q25_murder, ])
+print(subset_states)
+hist(USArrests$Murder, main = "Histogram of Murder Rates", xlab = "Murder Rate")
+plot(density(USArrests$Assault), main = "Density Plot of Assaults")
+plot(USArrests$UrbanPop, USArrests$Murder, xlab = "Urban Pop (%)", ylab = "Murder Rate", main = "Scatterplot")
