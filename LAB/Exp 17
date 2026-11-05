@@ -1,0 +1,7 @@
+titanic_df <- as.data.frame(Titanic)
+class_surv <- xtabs(Freq ~ Class + Survived, data = titanic_df)
+barplot(class_surv, legend = TRUE, main = "Survival vs Class", col = c("red", "blue", "green", "yellow"))
+gender_surv <- xtabs(Freq ~ Sex + Survived, data = titanic_df)
+barplot(gender_surv, legend = TRUE, main = "Survival vs Gender", col = c("pink", "lightblue"))
+age_freq <- xtabs(Freq ~ Age, data = titanic_df)
+barplot(age_freq, main = "Distribution of Age Group", col = "orange")
