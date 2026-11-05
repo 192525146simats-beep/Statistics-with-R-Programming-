@@ -1,0 +1,10 @@
+set.seed(123)
+adv_data <- data.frame(
+  Spend = seq(10, 100, length.out = 30),
+  Sales = seq(10, 100, length.out = 30) * 1.5 + rnorm(30, mean = 0, sd = 5)
+)
+model <- lm(Sales ~ Spend, data = adv_data)
+summary(model)
+new_data <- data.frame(Spend = 150)
+predicted_sales <- predict(model, newdata = new_data)
+cat("Predicted Sales for Spend = 150:", predicted_sales, "\n")
