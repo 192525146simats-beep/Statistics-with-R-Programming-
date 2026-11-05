@@ -1,0 +1,13 @@
+data("iris")
+iris_binary <- iris
+iris_binary$IsSetosa <- ifelse(iris_binary$Species == "setosa", 1, 0)
+set.seed(42)
+train_indices <- sample(1:nrow(iris_binary), 0.8 * nrow(iris_binary))
+train_data <- iris_binary[train_indices, ]
+test_data  <- iris_binary[-train_indices, ]
+log_model <- glm(IsSetosa ~ Petal.Length + Petal.Width, data = train_data, family = binomial)
+prob_preds <- predict(log_model, newdata = test_data, type = "response")
+class_preds <- ifelse(prob_preds > 0.5, 1, 0)
+conf_matrix <- table(Predicted = class_preds, Actual = test_data$IsSetosa)
+print("Confusion Matrix:")
+print(conf_matrix)
