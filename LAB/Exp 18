@@ -1,0 +1,7 @@
+par(mfrow = c(2, 3)) # Arrange plots in a grid
+boxplot(mpg ~ cyl, data = mtcars, main = "Boxplot", xlab = "Cylinders", ylab = "MPG")
+hist(mtcars$mpg, main = "Histogram", xlab = "MPG", col = "skyblue")
+barplot(table(mtcars$gear), main = "Bar Plot", xlab = "Gears", col = "lightgreen")
+plot(mtcars$hp, type = "o", main = "Line Chart", ylab = "Horsepower", col = "red")
+plot(mtcars$wt, mtcars$mpg, main = "Scatter Plot", xlab = "Weight", ylab = "MPG", col = "purple", pch = 19)
+par(mfrow = c(1, 1)) # Reset plot view
