@@ -1,0 +1,8 @@
+data("iris")
+dim(iris)
+summary(iris)
+sd(iris$Sepal.Length)
+quantile(iris$Sepal.Length)
+aggregate(. ~ Species, data = iris, FUN = mean)
+iris$Length_Cat <- cut(iris$Sepal.Length, breaks = c(0, 5.5, 6.5, 10), labels = c("Short", "Medium", "Long"))
+table(iris$Length_Cat, iris$Species)
