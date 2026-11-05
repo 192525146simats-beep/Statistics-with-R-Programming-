@@ -1,0 +1,7 @@
+data("ChickWeight")
+cw_model <- lm(weight ~ Time + Diet, data = ChickWeight)
+summary(cw_model)
+predictions <- predict(cw_model, ChickWeight)
+mse <- mean((ChickWeight$weight - predictions)^2)
+rmse <- sqrt(mse)
+cat("Root Mean Squared Error (RMSE):", rmse, "\n")
